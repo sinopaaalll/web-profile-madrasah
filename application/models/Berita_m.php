@@ -21,6 +21,32 @@ class Berita_m extends CI_Model
         return $this->db->get()->row();
     }
 
+    public function get_by_slug($slug)
+    {
+        $this->db->select('berita.*, kategori.kategori AS kategori');
+        $this->db->from('berita');
+        $this->db->where('berita.slug', $slug);
+        $this->db->join('kategori', ' kategori.id = berita.kategori_id');
+        return $this->db->get()->row();
+    }
+
+    public function count_all()
+    {
+        $this->db->where('status', 'publish');
+        return $this->db->count_all_results('berita');
+    }
+
+    public function get_berita_paginated($limit, $offset)
+    {
+        $this->db->select('berita.*, kategori.kategori AS kategori');
+        $this->db->from('berita');
+        $this->db->where('berita.status', 'publish');
+        $this->db->join('kategori', ' kategori.id = berita.kategori_id');
+        $this->db->order_by('berita.created_at', 'desc');
+        $this->db->limit($limit, $offset);
+        return $this->db->get()->result();
+    }
+
     public function create($tabel, $data)
     {
         return $this->db->insert($tabel, $data);

@@ -1,7 +1,5 @@
 <!-- Home -->
-
 <div class="home">
-
     <!-- Home Slider -->
     <div class="home_slider_container">
         <div class="owl-carousel owl-theme home_slider">
@@ -9,22 +7,14 @@
             <?php foreach ($slider as $data) { ?>
                 <!-- Slide -->
                 <div class="owl-item">
-                    <div class="background_image" style="background-image:url(<?= base_url('assets/uploads/slider/' . $data->slider) ?>)"></div>
-                    <div class="home_container">
+                    <div class="background_image" style="background-image: url(<?= base_url('assets/uploads/slider/' . $data->slider) ?>); "></div>
+
+                    <div class="home_container slider_home">
                         <div class="container">
                             <div class="row">
-                                <div class="col">
-                                    <div class="home_content">
-                                        <!-- <div class="home_subtitle">#1 Plastic Surgery Clinic</div> -->
-                                        <div class="home_title text-light"><?= $data->keterangan ?></div>
-                                        <!-- <div class="home_text">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-                                            </div> -->
-                                        <div class="home_buttons d-flex flex-row align-items-center justify-content-start">
-                                            <div class="button button_1 trans_200"><a href="#">read more</a></div>
-                                            <!-- <div class="button button_2 trans_200"><a href="#">make an appointment</a></div> -->
-                                        </div>
-                                    </div>
+                                <div class="col-12">
+                                    <h2 class="text-center text-light"><?= $data->keterangan ?></h2> <br>
+                                    <h6 class="text-center text-light"><?= $data->keterangan ?></h6>
                                 </div>
                             </div>
                         </div>
@@ -75,40 +65,10 @@
                         </div>
                     </div>
                     <div class="intro_text">
-                        <p>Integer aliquet congue libero, eu gravida odio ultrices ut. Etiam ac erat ut enim maximus accumsan vel ac nisl. Duis feugiat bibendum orci, non elementum urna vestibulum in. Nulla facilisi. Nulla egestas vel lacus sed interdum. Sed mollis, orci elementum eleifend tempor, nunc libero porttitor tellus, vel pharetra metus dolor.</p>
+                        <?= html_entity_decode($profil->profil_umum) ?>
                     </div>
-                    <div class="milestones">
-                        <div class="row milestones_row">
-
-                            <!-- Milestone -->
-                            <div class="col-md-3 milestone_col text-center">
-                                <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="6">0</div>
-                                    <div class="milestone_text">Staff</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 milestone_col text-center">
-                                <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="6">0</div>
-                                    <div class="milestone_text">Guru</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 milestone_col text-center">
-                                <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="6">0</div>
-                                    <div class="milestone_text">Kelas</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 milestone_col text-center">
-                                <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="6">0</div>
-                                    <div class="milestone_text">Siswa</div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
+                    <div class="text-right">
+                        <a href="<?= base_url('tentang_kami') ?>" class="btn btn-default">Selengkapnya &nbsp; <span class="fa fa-arrow-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -133,10 +93,10 @@
                         <div class="section_title">
                             <div class="row justify-content-between">
                                 <div class="col-lg-3">
-                                    <h2>Berita</h2>
+                                    <h3>Berita terbaru</h3>
                                 </div>
                                 <div class="col-lg-3 text-right">
-                                    <a href="#" class="btn btn-lg btn-secondary">Lihat Semua &nbsp; <span class="fa fa-arrow-right"></span></a>
+                                    <a href="<?= base_url('berita') ?>" class="btn btn-default">Lihat Semua &nbsp; <span class="fa fa-arrow-right"></span></a>
                                 </div>
                             </div>
                         </div><br>
@@ -144,19 +104,32 @@
                         <div class="row">
 
                             <?php foreach ($berita as $data) : ?>
-                                <div class="col-lg-4">
+                                <div class="col-lg-12 mb-2">
                                     <div class="card">
-                                        <img src="<?= base_url('assets/uploads/berita/' . $data->gambar) ?>" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?= $data->judul ?></h5>
-                                            <p class="card-text"><?= $data->kutipan ?></p>
-                                            <br>
-                                            <a href="#" class="btn btn-sm btn-primary">Baca Selengkapnya</a>
-                                            <small>Baca Selengkapnya</small>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <img src="<?= base_url('assets/uploads/berita/' . $data->gambar) ?>" alt="" style="width: 250px; height: 250px">
+                                                </div>
+                                                <div class="col-lg-9">
+                                                    <small>
+                                                        <span class="fa fa-tags"></span> <?= $data->kategori ?> &nbsp;
+                                                        <span class="fa fa-clock-o"></span> <?= date('d-M-Y, H:i', strtotime($data->created_at)) ?>
+                                                    </small>
+                                                    <hr>
+                                                    <h4 style="text-align:justify; "><a href="<?= base_url('berita/detail/' . $data->slug) ?>" class="text-dark"><?= $data->judul ?></a></h4>
+                                                    <p style="text-align:justify;"><?= $data->kutipan ?></p>
+                                                    <div class=" mt-3">
+                                                        <a href="<?= base_url('berita/detail/' . $data->slug) ?>" class="text-right">Selengkapnya...</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
+
+
 
                         </div>
 
@@ -195,6 +168,10 @@
                     </div>
                 </div>
             <?php } ?>
+
+            <div class="col-lg-12 text-center">
+                <a href="<?= base_url('galeri') ?>" class="btn btn-default">Lihat Semua &nbsp; <span class="fa fa-arrow-right"></span></a>
+            </div>
 
         </div>
     </div>

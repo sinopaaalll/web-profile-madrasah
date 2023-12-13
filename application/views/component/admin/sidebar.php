@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">MA AL-Amanah</a>
+            <a href="<?= base_url('admin/home') ?>">MIS Al Amanah</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">MA</a>
+            <a href="<?= base_url('admin/home') ?>">MA</a>
         </div>
         <ul class="sidebar-menu">
             <li class="<?= $this->uri->segment(2) === 'home' ? "active" : "" ?>"><a class="nav-link" href="<?= base_url('admin/home') ?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
@@ -20,7 +20,7 @@
                 </ul>
             </li>
             <li class="<?= $this->uri->segment(2) === 'galeri' ? "active" : "" ?>"><a class="nav-link" href="<?= base_url('admin/galeri') ?>"><i class="fas fa-images"></i> <span>Kelola Galeri</span></a></li>
-            <li class=><a class="nav-link" href=""><i class="fas fa-cogs"></i> <span>Konfigurasi Profile</span></a></li>
+            <li class="<?= $this->uri->segment(2) === 'profil' ? "active" : "" ?>"><a class="nav-link" href="<?= base_url('admin/profil') ?>"><i class="fas fa-cogs"></i> <span>Konfigurasi Profil</span></a></li>
 
 
         </ul>

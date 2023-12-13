@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>MA Al Amanah</title>
+    <title>MIS Al Amanah &mdash; <?= $title ?></title>
+    <link rel="apple-touch-icon" href="<?= base_url('') ?>assets/user/images/Logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('') ?>assets/user/images/Logo.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="MA Al Amanah">
@@ -15,7 +17,15 @@
     <link href="<?= base_url('assets/user/') ?>plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/user/') ?>styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/user/') ?>styles/responsive.css">
+
     <style>
+        .slider_home {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 70%;
+            padding-bottom: 70%;
+        }
+
         img.zoom {
             width: 100%;
             height: 200px;
@@ -65,10 +75,12 @@
                 <!-- Main Navigation -->
                 <nav class="main_nav">
                     <ul class="d-flex flex-row align-items-center justify-content-start">
-                        <li class="active"><a href="">Home</a></li>
-                        <li class=""><a href="">Profile</a></li>
-                        <li><a href="services.html">Berita</a></li>
-                        <li><a href="blog.html">Galeri</a></li>
+                        <li class="<?= $this->uri->segment(1) == "" || $this->uri->segment(1) == "home" ? "active" : "" ?>"><a href="<?= base_url('home') ?>">Home</a></li>
+                        <li class="<?= $this->uri->segment(1) == "tentang_kami" ? "active" : "" ?>"><a href="<?= base_url('tentang_kami') ?>">Tentang Kami</a></li>
+                        <li class="<?= $this->uri->segment(1) == "visi_misi" ? "active" : "" ?>"><a href="<?= base_url('visi_misi') ?>">Visi Misi</a></li>
+                        <li class="<?= $this->uri->segment(1) == "struktur_organisasi" ? "active" : "" ?>"><a href="<?= base_url('struktur_organisasi') ?>">Struktur Organisasi</a></li>
+                        <li class="<?= $this->uri->segment(1) == "berita" ? "active" : "" ?>"><a href="<?= base_url('berita') ?>">Berita</a></li>
+                        <li class="<?= $this->uri->segment(1) == "galeri" ? "active" : "" ?>"><a href="<?= base_url('galeri') ?>">Galeri</a></li>
                     </ul>
                 </nav>
                 <div class="header_extra d-flex flex-row align-items-center justify-content-end ml-auto">
@@ -76,13 +88,13 @@
 
 
                     <!-- Appointment Button -->
-                    <div class="button button_2 header_button"><a href="#"> Login Admin &nbsp; <span class="fa fa-sign-in"></span></a></div>
+                    <div class="button button_2 header_button"><a href="<?= base_url('login') ?>"> Login Admin &nbsp; <span class="fa fa-sign-in"></span></a></div>
 
                     <!-- Header Social -->
                     <div class="social header_social">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
                             <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
                         </ul>
                     </div>
@@ -105,20 +117,21 @@
             </div>
             <nav class="menu_nav">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Profile</a></li>
-                    <li><a href="">Berita</a></li>
-                    <li><a href="">Galeri</a></li>
+                    <li><a href="<?= base_url('home') ?>">Home</a></li>
+                    <li><a href="<?= base_url('tentang_kami') ?>">Tentang Kami</a></li>
+                    <li><a href="<?= base_url('visi_misi') ?>">Visi Misi</a></li>
+                    <li><a href="<?= base_url('struktur_organisasi') ?>">Struktur Organisasi</a></li>
+                    <li><a href="<?= base_url('berita') ?>">Berita</a></li>
+                    <li><a href="<?= base_url('galeri') ?>">Galeri</a></li>
                 </ul>
             </nav>
             <div class="menu_extra">
-                <div class="menu_link"><a href="#">Login Admin</a></div>
+                <div class="menu_link"><a href="<?= base_url('login') ?>">Login Admin</a></div>
             </div>
             <div class="social menu_social">
                 <ul class="d-flex flex-row align-items-center justify-content-start">
-                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <!-- <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
                 </ul>
             </div>
         </div>

@@ -52,3 +52,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'landingpage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['login'] = 'auth/index';
+$route['logout'] = 'auth/logout';
+
+$route['home'] = 'landingpage/index';
+$route['tentang_kami'] = 'landingpage/tentang_kami';
+$route['visi_misi'] = 'landingpage/visi_misi';
+$route['struktur_organisasi'] = 'landingpage/so';
+$route['berita'] = 'landingpage/berita';
+$route['berita/(:any)'] = 'landingpage/berita/$1';
+$route['berita/detail/(:any)'] = 'landingpage/berita_detail/$1';
+$route['galeri'] = 'landingpage/galeri';
+$route['galeri/(:any)'] = 'landingpage/galeri/$1';
+
+
+$route['admin/profil_user/(:any)'] = 'admin/admin/profil/$1';

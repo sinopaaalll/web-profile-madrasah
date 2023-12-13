@@ -8,6 +8,18 @@ class Galeri_m extends CI_Model
         return $this->db->get('galeri')->result();
     }
 
+    public function count_all()
+    {
+        return $this->db->count_all('galeri');
+    }
+
+    public function get_galeri_paginated($limit, $offset)
+    {
+        $this->db->order_by('created_at', 'desc');
+        $this->db->limit($limit, $offset);
+        return $this->db->get('galeri')->result();
+    }
+
     public function create($tabel, $data)
     {
         return $this->db->insert($tabel, $data);
