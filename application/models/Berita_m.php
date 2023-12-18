@@ -5,9 +5,10 @@ class Berita_m extends CI_Model
 {
     public function get_all()
     {
-        $this->db->select('berita.*, kategori.kategori AS kategori');
+        $this->db->select('berita.*, kategori.kategori AS kategori, admin.foto as foto');
         $this->db->from('berita');
         $this->db->join('kategori', ' kategori.id = berita.kategori_id');
+        $this->db->join('admin', ' berita.created_by = admin.nama');
         $this->db->order_by('id', 'DESC');
         return $this->db->get()->result();
     }

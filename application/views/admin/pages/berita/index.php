@@ -57,7 +57,7 @@
                                             <td><?= $data->kategori ?></td>
                                             <td>
                                                 <a href="#">
-                                                    <img alt="image" src="<?= base_url('assets/admin/') ?>img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="title" title="">
+                                                    <img alt="image" src="<?= base_url('assets/uploads/admin/' . $data->foto) ?>" class="rounded-circle" width="35" data-toggle="title" title="">
                                                     <div class="d-inline-block ml-1"><?= $data->created_by ?></div>
                                                 </a>
                                             </td>

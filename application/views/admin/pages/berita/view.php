@@ -30,8 +30,8 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-12 col-md-6 text-right">
-                                    <a href="" class="btn btn-sm btn-default"><span class="fas fa-edit"></span>Edit</a>
-                                    <a href="" class="btn btn-sm btn-default"><span class="fas fa-trash"></span>Hapus</a>
+                                    <a href="<?= base_url('admin/berita/edit/' . $berita->id) ?>" class="btn btn-sm btn-default"><span class="fas fa-edit"></span>Edit</a>
+                                    <a href="<?= base_url('admin/berita/hapus/' . $berita->id) ?>" class="btn btn-sm btn-default"><span class="fas fa-trash"></span>Hapus</a>
                                 </div>
                             </div>
                             <hr>

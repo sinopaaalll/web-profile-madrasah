@@ -23,6 +23,7 @@ class Admin extends CI_Controller
             $data = [
                 'title' => 'Profil User',
                 'profil' => $this->Admin_m->get_byUsername($username),
+                'berita' => $this->Berita_m->get_all(),
             ];
 
             $this->load->view('component/admin/header', $data);
@@ -47,7 +48,7 @@ class Admin extends CI_Controller
             if (empty($_FILES['foto']['name'])) {
                 $foto = $old_foto;
             } else {
-                $old_photo_path = 'assets/uploads/galeri/' . $old_foto;
+                $old_photo_path = 'assets/uploads/admin/' . $old_foto;
                 if (file_exists($old_photo_path)) {
                     unlink($old_photo_path);
                 }
@@ -56,7 +57,7 @@ class Admin extends CI_Controller
                 if (!$this->upload->do_upload('foto')) {
                     $error = $this->upload->display_errors();
                     $this->session->set_flashdata('error', $error);
-                    redirect('admin/galeri'); // Handle the error, you may want to redirect to the previous page or show an error message
+                    redirect('admin/profil_user/' . $username); // Handle the error, you may want to redirect to the previous page or show an error message
                 } else {
                     $upload_data['foto'] = $this->upload->data();
                     $foto = $upload_data['foto']['file_name'];

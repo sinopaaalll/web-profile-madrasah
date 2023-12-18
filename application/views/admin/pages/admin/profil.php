@@ -22,7 +22,7 @@
                             <div class="profile-widget-items">
                                 <div class="profile-widget-item">
                                     <div class="profile-widget-item-label">Posts</div>
-                                    <div class="profile-widget-item-value">187</div>
+                                    <div class="profile-widget-item-value"><?= count($berita) ?></div>
                                 </div>
 
                             </div>
