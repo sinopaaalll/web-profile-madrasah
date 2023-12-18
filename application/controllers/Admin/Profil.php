@@ -65,7 +65,7 @@ class Profil extends CI_Controller
             'misi' => htmlspecialchars($this->input->post('misi')),
             'so' => $so,
             'updated_at' => date("Y-m-d H:i:s"),
-            'updated_by' => "Authors",
+            'updated_by' => $this->session->userdata('nama'),
         ];
 
         // var_dump($data, $id);

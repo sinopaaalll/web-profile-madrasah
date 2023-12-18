@@ -73,7 +73,7 @@ class Berita extends CI_Controller
                 'gambar' => $upload_data['gambar']['file_name'],
                 'status' => htmlspecialchars($this->input->post('status')),
                 'created_at' => date("Y-m-d H:i:s"),
-                'created_by' => "Authors",
+                'created_by' => $this->session->userdata('nama'),
             ];
 
             // var_dump($data);
@@ -170,7 +170,7 @@ class Berita extends CI_Controller
                 'gambar' => $gambar,
                 'status' => htmlspecialchars($this->input->post('status')),
                 'updated_at' => date("Y-m-d H:i:s"),
-                'updated_by' => "Authors",
+                'updated_by' => $this->session->userdata('nama'),
             ];
 
             // var_dump($data, $id_berita);
